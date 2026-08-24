@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nine Fifteen — Global macro, translated for Indian markets</title>
+<meta name="description" content="What moved overnight, and how it reaches Indian markets. Free daily pre-open brief.">
+<style>
+:root{
+  color-scheme: light;
+  --plane:#f9f9f7; --surface:#fcfcfb;
+  --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,0.10);
+  --good:#0ca30c; --goodtext:#006300; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b;
+  --s1:#2a78d6; --accent:#1c5cab;
+  --wash:rgba(11,11,11,0.035);
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --plane:#0d0d0d; --surface:#1a1a19;
+  --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,0.10);
+  --goodtext:#0ca30c; --s1:#3987e5; --accent:#6da7ec;
+  --wash:rgba(255,255,255,0.045);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --plane:#0d0d0d; --surface:#1a1a19;
+    --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,0.10);
+    --goodtext:#0ca30c; --s1:#3987e5; --accent:#6da7ec;
+    --wash:rgba(255,255,255,0.045);
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+
+/* nav */
+nav{border-bottom:1px solid var(--grid);position:sticky;top:0;background:var(--plane);z-index:10}
+nav .in{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-weight:750;letter-spacing:-0.02em;font-size:16px;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:18px;align-items:center;font-size:13.5px}
+.navlinks a{color:var(--ink2);text-decoration:none}
+.navlinks a:hover{color:var(--ink)}
+.themebtn{border:1px solid var(--ring);background:var(--surface);color:var(--ink2);border-radius:999px;
+  padding:6px 13px;font-size:12px;cursor:pointer;font-family:inherit}
+.themebtn:hover{background:var(--wash)}
+
+.wrap{max-width:1120px;margin:0 auto;padding:28px 20px 60px}
+
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:650}
+h1{font-size:27px;line-height:1.15;margin:6px 0 4px;font-weight:700;letter-spacing:-0.02em}
+.sub{color:var(--ink2);font-size:14px}
+
+.verdict{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--accent);
+  border-radius:12px;padding:18px 20px;margin-bottom:26px}
+.verdict h2{margin:0 0 8px;font-size:15px;letter-spacing:-0.01em}
+.verdict p{margin:0 0 10px;color:var(--ink2);font-size:14.5px}
+.verdict p:last-child{margin-bottom:0}
+.verdict strong{color:var(--ink)}
+
+section{margin-bottom:30px}
+h2.sec{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--grid)}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:10px}
+.tile{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:13px 14px}
+.tile .lbl{font-size:11.5px;color:var(--muted);font-weight:600;letter-spacing:.02em;
+  display:flex;justify-content:space-between;gap:6px;align-items:baseline}
+.tile .val{font-size:21px;font-weight:680;letter-spacing:-0.025em;margin:5px 0 2px;color:var(--ink)}
+.tile .chg{font-size:12.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.tile .note{font-size:11.5px;color:var(--muted);margin-top:3px}
+.up{color:var(--goodtext)} .down{color:var(--crit)} .flat{color:var(--muted)}
+
+table{width:100%;border-collapse:collapse;background:var(--surface);
+  border:1px solid var(--ring);border-radius:10px;overflow:hidden;font-size:13.5px}
+th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  font-weight:650;padding:10px 12px;border-bottom:1px solid var(--grid);background:var(--wash)}
+td{padding:9px 12px;border-bottom:1px solid var(--grid);color:var(--ink2);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+td.name{color:var(--ink);font-weight:600}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+
+.bars{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:14px 16px}
+.barrow{display:grid;grid-template-columns:130px 1fr 62px;align-items:center;gap:10px;padding:5px 0}
+.barrow .bl{font-size:12.5px;color:var(--ink);font-weight:600}
+.bartrack{position:relative;height:16px;background:linear-gradient(to right,transparent calc(50% - 0.5px),var(--grid) calc(50% - 0.5px),var(--grid) calc(50% + 0.5px),transparent calc(50% + 0.5px))}
+.bar{position:absolute;top:2px;height:12px}
+.bar.pos{left:50%;background:var(--s1);border-radius:0 4px 4px 0}
+.bar.neg{right:50%;background:var(--crit);border-radius:4px 0 0 4px}
+.barval{font-size:12.5px;font-variant-numeric:tabular-nums;text-align:right;font-weight:600}
+
+ul.news{list-style:none;margin:0;padding:0}
+ul.news li{background:var(--surface);border:1px solid var(--ring);border-radius:10px;
+  padding:12px 14px;margin-bottom:8px}
+ul.news li .h{font-weight:650;color:var(--ink);font-size:14px;margin-bottom:3px}
+ul.news li .b{color:var(--ink2);font-size:13.5px}
+.chip{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:2px 7px;border-radius:5px;margin-right:8px;vertical-align:2px;border:1px solid var(--ring)}
+.c-info{color:var(--s1)} .c-neu{color:var(--muted)} .c-warn{color:var(--serious)}
+
+.subscribe{background:var(--surface);border:1px solid var(--ring);border-radius:12px;padding:18px 20px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:30px}
+.subscribe .t{font-size:14px;color:var(--ink2)}
+.subscribe .t b{color:var(--ink)}
+.subscribe a.cta{font-size:13.5px;font-weight:650;text-decoration:none;color:var(--plane);
+  background:var(--ink);padding:9px 16px;border-radius:7px;white-space:nowrap}
+
+.discl{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--muted);
+  border-radius:9px;padding:16px 18px;font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.discl strong{color:var(--ink2)}
+.foot{padding-top:10px;font-size:12px;color:var(--muted);line-height:1.7}
+.foot a{color:var(--muted)}
+
+.confbox{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:14px 16px;margin-bottom:26px}
+.confbox h3{margin:0 0 10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.conftags{display:flex;flex-wrap:wrap;gap:8px}
+.conftag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:5px 10px;border-radius:7px;border:1px solid var(--ring);color:var(--ink2)}
+.conftag b{color:var(--ink);font-weight:650}
+.conftag .dot{width:7px;height:7px;border-radius:50%;flex:none}
+.dot-p{background:var(--goodtext)}
+.dot-c{background:var(--s1)}
+.dot-s{background:var(--warn)}
+.confkey{margin-top:10px;font-size:11.5px;color:var(--muted)}
+
+</style>
+</head>
+<body>
+
+<nav><div class="in">
+  <a class="logo" href="/">Nine<span>Fifteen</span></a>
+  <div class="navlinks">
+    <a href="/archive.html">Archive</a>
+    <a href="/">Home & About</a>
+    <a href="/#subscribe">Subscribe</a>
+    <button class="themebtn" onclick="var r=document.documentElement;r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')">Theme</button>
+  </div>
+</div></nav>
+
+<div class="wrap">
+
+<header class="top">
+  <div>
+    <div class="eyebrow">Pre-Open Edition</div>
+    <h1>Wednesday, 19 August 2026</h1>
+    <div class="sub">What moved overnight, and how it reaches Indian markets. Prior session: Tue 18 Aug.</div>
+  </div>
+</header>
+
+<div class="verdict">
+  <h2>The overnight story</h2>
+  <p>Two things happened while India slept, and both arrived from outside. The first was a semiconductor unwind that started on Wall Street and landed hardest in Asia — the Kospi fell 6.39% and triggered a circuit breaker, the Nikkei fell 2.82%. The second was a bond and oil squeeze out of the US–Iran standoff: Brent has risen for four straight sessions to just under $92, and the US 30-year Treasury yield reached 5.31%, its highest level since 2007.</p>
+  <p><strong>How this reaches India:</strong> rising US long-term yields raise the discount rate global investors apply to equities everywhere, hitting long-duration, high-growth names hardest — which is why chipmakers led the overnight fall rather than followed it. Brent near $92 reaches India through three channels at once: the current account, imported inflation, and the rupee, which touched a two-week low of 95.66 with the RBI intervening for an eighth consecutive session.</p>
+  <p>Indian markets closed lower on Tuesday for a third straight session on the Sensex and a sixth on the Nifty, with IT the heaviest drag. GIFT Nifty was trading around 24,206–24,240 ahead of the open, pointing to a flat-to-mildly-positive start.</p>
+</div>
+
+<div class="confbox">
+  <h3>Source Confidence — today's headline figures</h3>
+  <div class="conftags">
+    <span class="conftag"><span class="dot dot-p"></span>Sensex / Nifty close <b>— Primary</b></span>
+    <span class="conftag"><span class="dot dot-c"></span>FII / DII net <b>— Cross-checked (2 sources)</b></span>
+    <span class="conftag"><span class="dot dot-p"></span>US 30-yr yield <b>— Primary</b></span>
+    <span class="conftag"><span class="dot dot-c"></span>Kospi / Nikkei moves <b>— Cross-checked</b></span>
+    <span class="conftag"><span class="dot dot-s"></span>GIFT Nifty (24,206–24,240) <b>— Single-sourced, as of ~8:40 AM IST</b></span>
+  </div>
+  <p class="confkey">P = confirmed against an official exchange/regulator source · C = confirmed by 2+ independent sources agreeing · S = only one source found — treat with more caution than the rest of this brief.</p>
+</div>
+
+<div class="subscribe">
+  <div class="t"><b>Get this in your inbox at 8:45 AM IST.</b> Free, weekdays, unsubscribe anytime.</div>
+  <a class="cta" href="/#subscribe">Subscribe free →</a>
+</div>
+
+<section>
+  <h2 class="sec">Tuesday's Close</h2>
+  <div class="tiles">
+    <div class="tile"><div class="lbl"><span>Sensex</span><span>BSE</span></div>
+      <div class="val">77,235.46</div><div class="chg down">−492.70 · −0.63%</div>
+      <div class="note">3rd straight decline</div></div>
+    <div class="tile"><div class="lbl"><span>Nifty 50</span><span>NSE</span></div>
+      <div class="val">24,154.90</div><div class="chg down">−132.75 · −0.55%</div>
+      <div class="note">6th straight decline</div></div>
+    <div class="tile"><div class="lbl"><span>Nifty Midcap 100</span></div>
+      <div class="val">−0.43%</div><div class="chg down">Underperformed</div></div>
+    <div class="tile"><div class="lbl"><span>Nifty Smallcap 100</span></div>
+      <div class="val">Flat</div><div class="chg flat">≈ 0.00%</div></div>
+    <div class="tile"><div class="lbl"><span>India VIX</span></div>
+      <div class="val">11.39</div><div class="chg flat">Subdued</div></div>
+    <div class="tile"><div class="lbl"><span>Breadth</span></div>
+      <div class="val">11 / 39</div><div class="chg down">Adv / Dec</div>
+      <div class="note">₹18,958 cr turnover</div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Institutional Flows — 18 August (₹ crore, cash)</h2>
+  <div class="tiles">
+    <div class="tile"><div class="lbl"><span>FII / FPI net</span></div>
+      <div class="val up">+1,651.5</div><div class="chg up">Net buyer</div></div>
+    <div class="tile"><div class="lbl"><span>DII net</span></div>
+      <div class="val up">+2,579.3</div><div class="chg up">Net buyer</div></div>
+    <div class="tile"><div class="lbl"><span>FPI, 1–18 Aug</span></div>
+      <div class="val up">+11,347.7</div><div class="chg up">Net buyer</div></div>
+    <div class="tile"><div class="lbl"><span>Nifty 50 P/E</span></div>
+      <div class="val">20.4×</div><div class="chg flat">12.6% below 10-yr avg</div></div>
+  </div>
+  <p style="font-size:13px;color:var(--ink2);margin:12px 0 0">Both institutional pools were net buyers on a day the index fell 0.55% — a combination worth noting, since it indicates the day's selling pressure was concentrated elsewhere while the index-level decline sat mostly in a handful of large IT names. <span style="color:var(--muted)">Note: several widely syndicated reports carried these two figures transposed; the numbers above are cross-checked against NSE-sourced data on two independent platforms and tagged Cross-checked, not Primary, above — NSE's own FII/DII report was not directly reachable at the time of writing.</span></p>
+</section>
+
+<section>
+  <h2 class="sec">Sector Scorecard — 18 August</h2>
+  <div class="bars">
+    <div class="barrow"><div class="bl">Nifty Oil &amp; Gas</div><div class="bartrack"><div class="bar pos" style="width:11.25%"></div></div><div class="barval up">+0.45%</div></div>
+    <div class="barrow"><div class="bl">Nifty Power</div><div class="bartrack"><div class="bar pos" style="width:8%"></div></div><div class="barval up">+0.32%</div></div>
+    <div class="barrow"><div class="bl">Nifty Healthcare</div><div class="bartrack"><div class="bar pos" style="width:6%"></div></div><div class="barval up">Outperf.</div></div>
+    <div class="barrow"><div class="bl">Nifty Auto</div><div class="bartrack"><div class="bar pos" style="width:5%"></div></div><div class="barval up">Outperf.</div></div>
+    <div class="barrow"><div class="bl">Nifty FMCG</div><div class="bartrack"><div class="bar neg" style="width:22.5%"></div></div><div class="barval down">−0.90%</div></div>
+    <div class="barrow"><div class="bl">Nifty Realty</div><div class="bartrack"><div class="bar neg" style="width:35%"></div></div><div class="barval down">Laggard</div></div>
+    <div class="barrow"><div class="bl">Nifty IT</div><div class="bartrack"><div class="bar neg" style="width:44%"></div></div><div class="barval down">−1.76%</div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Movers — Nifty 50, 18 August</h2>
+  <div class="two">
+    <table>
+      <thead><tr><th>Top gainers</th><th style="text-align:right">Price ₹</th><th style="text-align:right">Chg</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Axis Bank</td><td class="n">1,243.00</td><td class="n up">+1.28%</td></tr>
+        <tr><td class="name">Mahindra &amp; Mahindra</td><td class="n">3,421.50</td><td class="n up">+0.92%</td></tr>
+        <tr><td class="name">Grasim Industries</td><td class="n">3,278.70</td><td class="n up">+0.87%</td></tr>
+        <tr><td class="name">Reliance Industries</td><td class="n">—</td><td class="n up">Higher</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead><tr><th>Top losers</th><th style="text-align:right">Price ₹</th><th style="text-align:right">Chg</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Tata Motors</td><td class="n">322.80</td><td class="n down">−2.24%</td></tr>
+        <tr><td class="name">Asian Paints</td><td class="n">2,628.40</td><td class="n down">−2.20%</td></tr>
+        <tr><td class="name">Infosys</td><td class="n">1,115.00</td><td class="n down">−2.18%</td></tr>
+        <tr><td class="name">Wipro / HCL Tech</td><td class="n">—</td><td class="n down">&gt; −2%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Overnight Global Tape</h2>
+  <div class="tiles">
+    <div class="tile"><div class="lbl"><span>Dow Jones</span></div><div class="val">53,343.40</div><div class="chg down">−0.22%</div></div>
+    <div class="tile"><div class="lbl"><span>S&amp;P 500</span></div><div class="val">7,691.76</div><div class="chg down">−0.69%</div></div>
+    <div class="tile"><div class="lbl"><span>Nasdaq</span></div><div class="val">26,289.71</div><div class="chg down">−1.33%</div></div>
+    <div class="tile"><div class="lbl"><span>Kospi (19 Aug)</span></div><div class="val down">6,430.93</div><div class="chg down">−6.39%</div></div>
+    <div class="tile"><div class="lbl"><span>Nikkei 225</span></div><div class="val down">65,558.27</div><div class="chg down">−2.82%</div></div>
+    <div class="tile"><div class="lbl"><span>US 30-yr yield</span></div><div class="val down">5.31%</div><div class="chg down">Highest since 2007</div></div>
+    <div class="tile"><div class="lbl"><span>Brent crude</span></div><div class="val down">$91.89</div><div class="chg down">4th straight gain</div></div>
+    <div class="tile"><div class="lbl"><span>Gold</span></div><div class="val">$4,342/oz</div><div class="chg flat">Range-bound</div></div>
+    <div class="tile"><div class="lbl"><span>USD/INR</span></div><div class="val down">95.66</div><div class="chg down">2-week low</div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">On the Calendar</h2>
+  <ul class="news">
+    <li><div class="h"><span class="chip c-warn">Tonight, 11:30 PM IST</span>FOMC minutes</div>
+      <div class="b">The Fed held at 3.50–3.75% on 29 July, a fifth consecutive hold on a 9–3 vote. All three dissenters wanted a 25bp increase — the first unified hawkish dissent since September 2016. Markets currently price roughly 31% odds of a September hike, down from about two-thirds right after the meeting.</div></li>
+    <li><div class="h"><span class="chip c-info">Domestic policy</span>RBI held at 5.25% on 5 August</div>
+      <div class="b">Neutral stance retained. FY27 GDP forecast raised to 6.7%; FY27 CPI forecast cut to 5.0%, with Q3 projected to peak at 5.9%. The central bank cited Middle East geopolitical tension as its reason for standing pat.</div></li>
+    <li><div class="h"><span class="chip c-neu">Domestic data</span>July GST and unemployment</div>
+      <div class="b">July GST collections were ₹2.11 lakh crore, up 15.4% year on year. July unemployment fell to 5.1% from 5.5%, a four-month low. ICRA estimates Q1 FY27 GDP growth at 6.4–6.6%.</div></li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="sec">Corporate &amp; Primary Market</h2>
+  <ul class="news">
+    <li><div class="h"><span class="chip c-info">Stock-specific</span>Reliance Industries × Rolls-Royce</div>
+      <div class="b">Announced 14 August: strategic intent to jointly develop India's indigenous combat engine for the Advanced Medium Combat Aircraft programme. Reliance closed higher Tuesday against a falling market.</div></li>
+    <li><div class="h"><span class="chip c-neu">IPO — listing today</span>Behari Lal Engineering &amp; Shiprocket</div>
+      <div class="b">Grey market premiums ahead of listing indicated roughly 47% and 37% respectively.</div></li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="sec">Technical Context, as Reported</h2>
+  <p style="font-size:13px;color:var(--ink2);margin:0 0 10px">Levels below are cited by market commentators in published reports. They are presented here as reporting, not as this publication's own analysis or a recommendation.</p>
+  <table>
+    <thead><tr><th>Index</th><th>Reported support</th><th>Reported resistance</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td class="name">Nifty 50</td><td class="n">24,050–24,000</td><td class="n">24,240</td><td>Closed below 50-EMA</td></tr>
+      <tr><td class="name">Sensex</td><td class="n">76,800–77,000</td><td class="n">77,600–77,800</td><td>RSI reported at 44.82</td></tr>
+      <tr><td class="name">Bank Nifty</td><td class="n">56,900–56,800</td><td class="n">57,500–57,600</td><td>~8-week range: 56,500–58,700</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="discl">
+  <strong>Disclaimer.</strong> Nine Fifteen is an independent daily summary of publicly reported market and economic news. It is <strong>not investment advice</strong> and contains no recommendation to buy, sell, or hold any security. We are <strong>not registered with SEBI</strong> as a Research Analyst or Investment Adviser. Nothing here is tailored to any individual's financial situation, objectives, or risk tolerance. Figures are compiled from third-party sources believed reliable but are not independently audited and may be revised — always verify against your own broker or terminal before acting. Securities investments are subject to market risk; past performance does not indicate future results. Please consult a SEBI-registered adviser before making investment decisions.
+</div>
+<div class="foot">
+  Sources: Business Standard, Business Today, Trading Economics, TheStreet, Yahoo Finance, TradingKey, Univest, 5paisa, Craytheon, India Infoline, PIB, Rolls-Royce, Bajaj Broking, Newsquawk.<br>
+  <strong style="color:var(--ink2)">How we verify:</strong> figures marked Primary above were checked against official exchange or regulator data. Everything else was cross-checked across at least two independent sources before publishing. Anything we could only find once is marked Single-sourced and should be treated with more caution than the rest of this page. We keep a running log of every conflict and correction — <a href="/">ask us for it any time</a>.<br>
+  <a href="/archive.html">Browse past editions</a> · <a href="/">About Nine Fifteen (Home)</a>
+</div>
+
+</div>
+</body>
+</html>

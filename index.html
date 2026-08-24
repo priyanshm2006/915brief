@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nine Fifteen — Global macro, translated for Indian markets</title>
+<meta name="description" content="A daily brief on what moved overnight and how it reaches Indian markets. In your inbox before the 9:15 bell. Free.">
+<meta property="og:title" content="Nine Fifteen">
+<meta property="og:description" content="What moved overnight, and how it reaches Indian markets. Before the bell. Free, daily.">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --plane:#fbfaf8; --surface:#ffffff; --ink:#0b0b0b; --ink2:#4a4945; --muted:#8a8781;
+  --rule:#e6e4dd; --ring:rgba(11,11,11,0.09);
+  --accent:#1c5cab; --up:#006300; --down:#d03b3b;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --plane:#0d0d0c; --surface:#171716; --ink:#ffffff; --ink2:#c3c2b7; --muted:#8a8781;
+    --rule:#2a2a27; --ring:rgba(255,255,255,0.10);
+    --accent:#6da7ec; --up:#0ca30c; --down:#e66767;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--plane);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+/* nav */
+nav{border-bottom:1px solid var(--rule);position:sticky;top:0;background:var(--plane);z-index:10}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+.logo{font-weight:750;letter-spacing:-0.02em;font-size:17px}
+.logo span{color:var(--accent)}
+nav a.cta{font-size:13.5px;font-weight:650;text-decoration:none;color:var(--surface);
+  background:var(--ink);padding:8px 15px;border-radius:7px}
+
+/* hero */
+header.hero{padding:68px 0 52px;border-bottom:1px solid var(--rule)}
+.kicker{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:18px}
+h1{font-size:clamp(32px,5.4vw,50px);line-height:1.08;letter-spacing:-0.035em;font-weight:760;margin:0 0 20px}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:19px;color:var(--ink2);margin:0 0 30px;max-width:600px}
+.lede strong{color:var(--ink);font-weight:650}
+
+/* signup */
+.signup{background:var(--surface);border:1px solid var(--ring);border-radius:12px;padding:20px;max-width:520px}
+.signup form{display:flex;gap:8px;flex-wrap:wrap}
+.signup input{flex:1 1 220px;padding:12px 14px;font-size:15px;font-family:inherit;
+  border:1px solid var(--rule);border-radius:8px;background:var(--plane);color:var(--ink)}
+.signup input:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:transparent}
+.signup button{padding:12px 22px;font-size:15px;font-weight:650;font-family:inherit;cursor:pointer;
+  border:none;border-radius:8px;background:var(--ink);color:var(--plane)}
+.signup button:hover{opacity:.88}
+.signup .fine{font-size:12.5px;color:var(--muted);margin:11px 0 0}
+.embed-note{font-size:12px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px dashed var(--rule)}
+
+/* sections */
+section{padding:52px 0;border-bottom:1px solid var(--rule)}
+h2{font-size:25px;letter-spacing:-0.025em;font-weight:720;margin:0 0 14px}
+p{margin:0 0 16px;color:var(--ink2)}
+p strong{color:var(--ink);font-weight:650}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:26px}
+@media(max-width:640px){.cols{grid-template-columns:1fr}}
+.col h3{font-size:15px;margin:0 0 7px;font-weight:700;letter-spacing:-0.01em}
+.col p{font-size:14.5px;margin:0}
+
+/* sample */
+.sample{background:var(--surface);border:1px solid var(--ring);border-radius:12px;overflow:hidden;margin-top:24px}
+.sample .bar{padding:10px 16px;border-bottom:1px solid var(--rule);font-size:11.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.sample .body{padding:20px 22px}
+.sample .body h4{margin:0 0 10px;font-size:17px;letter-spacing:-0.02em}
+.sample .body p{font-size:14.5px;margin:0 0 12px}
+.sample .body p:last-child{margin:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:16px 0}
+.stat{border:1px solid var(--rule);border-radius:8px;padding:10px 11px}
+.stat .l{font-size:11px;color:var(--muted);font-weight:650}
+.stat .v{font-size:17px;font-weight:700;letter-spacing:-0.02em;margin-top:3px;font-variant-numeric:tabular-nums}
+.stat .c{font-size:12px;font-weight:650;font-variant-numeric:tabular-nums}
+.dn{color:var(--down)} .upc{color:var(--up)}
+
+/* list */
+ul.plain{list-style:none;padding:0;margin:20px 0 0}
+ul.plain li{padding:13px 0;border-top:1px solid var(--rule);display:grid;
+  grid-template-columns:26px 1fr;gap:12px;align-items:start}
+ul.plain li .num{font-size:12px;font-weight:750;color:var(--accent);padding-top:3px;font-variant-numeric:tabular-nums}
+ul.plain li .t{font-size:14.5px;color:var(--ink2)}
+ul.plain li .t b{color:var(--ink)}
+
+/* footer */
+footer{padding:38px 0 60px;font-size:12.5px;color:var(--muted);line-height:1.75}
+footer strong{color:var(--ink2)}
+.discl{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--muted);
+  border-radius:9px;padding:16px 18px;margin-bottom:22px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="/" style="text-decoration:none;color:var(--ink)">Nine<span>Fifteen</span></a>
+  <div style="display:flex;gap:16px;align-items:center">
+    <a href="/today.html" style="font-size:13.5px;color:var(--ink2);text-decoration:none">Today's brief</a>
+    <a href="/archive.html" style="font-size:13.5px;color:var(--ink2);text-decoration:none">Archive</a>
+    <a class="cta" href="#subscribe">Subscribe free</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Weekday mornings · 8:45 AM IST · Free</div>
+  <h1>What moved overnight, and <em>how it reaches</em> Indian markets.</h1>
+  <p class="lede">Every Indian market brief tells you the Nifty fell. <strong>Almost none tell you why a bond auction in Washington or a chip selloff in Seoul is the reason.</strong> Nine Fifteen closes that gap — in your inbox thirty minutes before the bell.</p>
+
+  <div class="signup" id="subscribe">
+    <form onsubmit="return nfSubscribe(this)">
+      <input type="email" placeholder="you@email.com" aria-label="Email address" required>
+      <button type="submit">Subscribe free</button>
+    </form>
+    <p class="fine">Free, daily, weekdays only. No spam, unsubscribe in one click.</p>
+    <p class="embed-note" id="nf-note"><strong>Setup note:</strong> this button currently sends readers straight to today's brief so you can test the flow end to end. Once you connect beehiiv or Substack, paste their embed script here and turn on <em>"Redirect to an external website"</em> in the form's settings, pointed at <code>/today.html</code> — same button, now a real subscription first.</p>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <h2>The gap this fills</h2>
+  <p>India has plenty of market news. Moneycontrol, ET Markets, a hundred Telegram channels — all free, all fast, all covering the same closing bell. What almost none of them do well is <strong>transmission</strong>: the mechanics of how a move in one market becomes a move in another.</p>
+  <p>When the US 30-year Treasury yield hits a nineteen-year high, that is not trivia. It raises the global hurdle rate that Indian equities are measured against, compresses the valuations of long-duration growth assets hardest, and is the actual reason Nifty IT led a decline rather than followed it. When Brent goes to $92, it reaches India through three doors at once — the current account, imported inflation, and the rupee.</p>
+  <p>That chain of causation is what we write about every morning. Everything else is context.</p>
+
+  <div class="cols">
+    <div class="col"><h3>Written, not generated</h3><p>Every figure is cross-checked against at least two independent sources before it goes out. We have already caught major outlets publishing institutional flow data with the numbers transposed.</p></div>
+    <div class="col"><h3>Reported, not recommended</h3><p>We tell you what happened and what the mechanism is. We do not tell you what to buy. Where we cite analyst levels, we attribute them.</p></div>
+    <div class="col"><h3>Before the bell</h3><p>8:45 AM IST, weekdays. Fifteen minutes before pre-open, thirty before the open. Read it with your first coffee.</p></div>
+    <div class="col"><h3>Corrections published</h3><p>We get things wrong sometimes. When we do, we say so in the next edition rather than quietly editing the archive.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>A sample morning</h2>
+  <p>From the edition of 19 August 2026 — <a href="/today.html" style="color:var(--accent)">read today's full brief →</a></p>
+  <div class="sample">
+    <div class="bar">Nine Fifteen · Wed 19 Aug 2026</div>
+    <div class="body">
+      <h4>The overnight story</h4>
+      <p>Two things happened while India slept, and both arrived from outside. The first was a semiconductor unwind that started on Wall Street and landed hardest in Asia — the Kospi fell 6.39% and triggered a circuit breaker, the Nikkei 2.82%. The second was a bond and oil squeeze out of the US–Iran standoff: Brent has now risen four straight sessions, and the US 30-year Treasury yield reached 5.31%, its highest since 2007.</p>
+      <div class="stats">
+        <div class="stat"><div class="l">Nifty 50</div><div class="v">24,154.90</div><div class="c dn">−0.55%</div></div>
+        <div class="stat"><div class="l">Kospi</div><div class="v">6,430.93</div><div class="c dn">−6.39%</div></div>
+        <div class="stat"><div class="l">Brent</div><div class="v">$91.89</div><div class="c dn">4th gain</div></div>
+        <div class="stat"><div class="l">US 30-yr</div><div class="v">5.31%</div><div class="c dn">2007 high</div></div>
+      </div>
+      <p><b>The flow data is worth a second look.</b> FIIs bought ₹1,651.5 crore and DIIs ₹2,579.3 crore — both net buyers on a day the index fell 0.55%. That combination is unusual, and it tells you the selling came from elsewhere while the index damage sat in a handful of heavyweight IT names.</p>
+      <p style="color:var(--muted);font-size:13px">Several widely syndicated reports carried these two figures transposed. The numbers above are cross-checked against NSE-sourced data on two independent platforms.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What lands in your inbox</h2>
+  <ul class="plain">
+    <li><span class="num">01</span><span class="t"><b>The overnight story.</b> What moved, where, and the causal chain that connects it to India.</span></li>
+    <li><span class="num">02</span><span class="t"><b>Yesterday's close.</b> Sensex, Nifty, Bank Nifty, midcaps, smallcaps, VIX, breadth, sector scorecard, movers.</span></li>
+    <li><span class="num">03</span><span class="t"><b>Institutional flows.</b> FII and DII cash figures, cross-checked, with month-to-date context.</span></li>
+    <li><span class="num">04</span><span class="t"><b>The global tape.</b> US and Asian closes, Treasury yields, dollar, crude, gold, USD/INR, GIFT Nifty.</span></li>
+    <li><span class="num">05</span><span class="t"><b>Transmission channels.</b> The two or three mechanisms actually connecting global moves to Indian assets today.</span></li>
+    <li><span class="num">06</span><span class="t"><b>The calendar.</b> Data releases, central bank events and earnings, with exact IST times.</span></li>
+    <li><span class="num">07</span><span class="t"><b>Corporate and primary market.</b> Results, deals, regulatory news, IPOs listing and open.</span></li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Subscribe</h2>
+  <p>Free, and staying free. Weekdays at 8:45 AM IST.</p>
+  <div class="signup">
+    <form onsubmit="return nfSubscribe(this)">
+      <input type="email" placeholder="you@email.com" aria-label="Email address" required>
+      <button type="submit">Subscribe free</button>
+    </form>
+    <p class="fine">No spam. One click to leave. We never sell or share your address.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="discl">
+    <strong>Important — please read.</strong><br>
+    Nine Fifteen is an independent daily summary of publicly reported market and economic news. It is <strong>not investment advice</strong> and contains no recommendation to buy, sell or hold any security. We are <strong>not registered with SEBI</strong> as a Research Analyst or Investment Adviser. Nothing published here is tailored to any individual's financial situation, objectives or risk tolerance. Figures are compiled from third-party sources believed to be reliable but are not independently audited and may be revised — verify against your own broker or terminal before acting. Securities investments are subject to market risk; past performance does not indicate future results. Consult a SEBI-registered adviser before making investment decisions.
+  </div>
+  © 2026 Nine Fifteen · <a href="#subscribe" style="color:var(--muted)">Subscribe</a> · <a href="/today.html" style="color:var(--muted)">Today's brief</a> · <a href="/archive.html" style="color:var(--muted)">Archive</a> · Contact: [your email] · Corrections welcome and published.
+</div></footer>
+
+<script>
+// Placeholder subscribe handler — see the note under the signup box above.
+// Once a real beehiiv/Substack embed replaces the <form>, delete this script;
+// the ESP's own "redirect after subscribe" setting takes over this job.
+function nfSubscribe(form){
+  var btn = form.querySelector('button');
+  var original = btn.textContent;
+  btn.textContent = 'Taking you to today’s brief …';
+  btn.disabled = true;
+  setTimeout(function(){ window.location.href = '/today.html'; }, 650);
+  return false;
+}
+</script>
+
+</body>
+</html>
