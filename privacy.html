@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<script>
+try {
+  if (localStorage.getItem('nf_theme') === 'dark') document.documentElement.setAttribute('data-theme','dark');
+} catch(e){}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy notice — Nine Fifteen</title>
+<meta name="description" content="What Nine Fifteen collects, why, and how to see, change or delete it.">
+<style>
+:root{
+  --plane:#fbfaf8; --surface:#ffffff; --ink:#0b0b0b; --ink2:#4a4945; --muted:#8a8781;
+  --rule:#e6e4dd; --ring:rgba(11,11,11,0.09); --accent:#1c5cab;
+}
+:root[data-theme="dark"]{
+  --plane:#0d0d0c; --surface:#171716; --ink:#ffffff; --ink2:#c3c2b7; --muted:#8a8781;
+  --rule:#2a2a27; --ring:rgba(255,255,255,0.10); --accent:#6da7ec;
+}
+*{box-sizing:border-box}
+.theme-toggle{background:none;border:none;padding:0;margin:0;cursor:pointer;line-height:0;-webkit-tap-highlight-color:transparent}
+.tt-track{width:46px;height:25px;border-radius:999px;display:flex;align-items:center;padding:2px;
+  background:linear-gradient(to right,#cfe8ff,#ffe9ad);border:1px solid var(--ring);transition:background .35s ease}
+:root[data-theme="dark"] .tt-track{background:linear-gradient(to right,#1c2340,#0c0c14)}
+.tt-thumb{width:19px;height:19px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.28);
+  display:flex;align-items:center;justify-content:center;position:relative;
+  transform:translateX(0);transition:transform .35s cubic-bezier(.4,0,.2,1),background .35s ease}
+:root[data-theme="dark"] .tt-thumb{transform:translateX(21px);background:#2b2b3a}
+.tt-thumb svg{width:12px;height:12px;position:absolute;transition:opacity .25s ease,transform .35s ease}
+.tt-sun{color:#f2a01f;opacity:1;transform:scale(1) rotate(0deg)}
+.tt-moon{color:#cfd6f5;opacity:0;transform:scale(.4) rotate(-90deg)}
+:root[data-theme="dark"] .tt-sun{opacity:0;transform:scale(.4) rotate(90deg)}
+:root[data-theme="dark"] .tt-moon{opacity:1;transform:scale(1) rotate(0deg)}
+body{margin:0;background:var(--plane);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.65}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px}
+nav{border-bottom:1px solid var(--rule)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 22px}
+.logo{font-weight:750;letter-spacing:-0.02em;font-size:17px;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--accent)}
+nav .navlinks{display:flex;gap:16px;font-size:13.5px}
+nav .navlinks a{color:var(--ink2);text-decoration:none}
+header{padding:44px 0 8px}
+h1{font-size:30px;letter-spacing:-0.03em;margin:0 0 8px}
+.sub{color:var(--ink2);font-size:14.5px;margin:0 0 30px}
+h2{font-size:19px;letter-spacing:-0.02em;margin:34px 0 10px;font-weight:720}
+p{color:var(--ink2);margin:0 0 14px;font-size:15px}
+p strong,li strong{color:var(--ink)}
+ul{margin:0 0 14px;padding-left:20px;color:var(--ink2);font-size:15px}
+li{margin-bottom:6px}
+a{color:var(--accent)}
+.box{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:16px 18px;margin:20px 0}
+.box p:last-child{margin:0}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);color:var(--ink2)}
+th{color:var(--ink);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em}
+footer{padding:40px 0 60px;font-size:12.5px;color:var(--muted)}
+footer a{color:var(--muted)}
+code{background:var(--surface);border:1px solid var(--ring);border-radius:4px;padding:1px 5px;font-size:13px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="/">Nine<span>Fifteen</span></a>
+  <div class="navlinks" style="align-items:center">
+    <a href="/today">Today's brief</a>
+    <a href="/archive">Archive</a>
+    <a href="/#subscribe">Subscribe</a>
+    <button class="theme-toggle" onclick="nfToggleTheme()" aria-label="Toggle dark mode" title="Toggle theme">
+      <span class="tt-track"><span class="tt-thumb">
+        <svg class="tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="tt-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </span></span>
+    </button>
+  </div>
+</div></nav>
+
+<div class="wrap">
+<header>
+  <h1>Privacy notice</h1>
+  <p class="sub">Version 2026-08-24. In plain language first, details below. Last updated 24 August 2026.</p>
+</header>
+
+<div class="box">
+  <p><strong>The short version:</strong> we collect your email address so we can send you the daily brief, nothing else. We don't sell or share it with advertisers. You can unsubscribe with one click in every email, and you can ask us to delete your data entirely at any time.</p>
+</div>
+
+<h2>What we collect</h2>
+<p>When you subscribe, we store:</p>
+<ul>
+  <li><strong>Your email address.</strong></li>
+  <li><strong>The date and time you subscribed</strong>, and which version of this privacy notice you agreed to at the time — so we can always show you exactly what you consented to.</li>
+  <li><strong>How you subscribed</strong> (currently: through the website form).</li>
+</ul>
+<p>We do not collect your name, location, device information, or any other personal detail through the subscribe form. We do not use tracking cookies or analytics scripts on this site.</p>
+
+<h2>Why we collect it</h2>
+<p>Solely to send you the Nine Fifteen daily brief by email, and to operate the unsubscribe link. This is the entire purpose — your address is never used for anything else, including no internal marketing lists, no product research, no resale.</p>
+
+<h2>Where it's stored</h2>
+<p>Your email address is stored in a database we control directly (Cloudflare D1), not inside a third-party newsletter platform's account. This is a deliberate choice so that we — not a vendor — hold and control the list at all times.</p>
+<p>To actually deliver the email, we use a transactional email sending service (a specialist provider for sending bulk email reliably, in the way most independent newsletters do). That provider processes your email address only to deliver the message and never uses it for any purpose of its own. We'll name the specific provider here once it's live.</p>
+
+<table>
+<tr><th>Who</th><th>Role</th><th>What they see</th></tr>
+<tr><td>Nine Fifteen (us)</td><td>Data controller</td><td>Your email, subscribe date, consent version</td></tr>
+<tr><td>Cloudflare</td><td>Database host (infrastructure only)</td><td>Same data, encrypted at rest, never accessed for their own purposes</td></tr>
+<tr><td>Email sending provider</td><td>Delivery only (processor)</td><td>Your email address, only at the moment of sending</td></tr>
+</table>
+
+<h2>How long we keep it</h2>
+<p>For as long as you're subscribed, plus a short period after you unsubscribe (to honor suppression — so we don't accidentally re-add you). If you ask us to delete your data entirely rather than just unsubscribe, we remove it outright; see "Your rights" below.</p>
+
+<h2>Your rights</h2>
+<ul>
+  <li><strong>Unsubscribe</strong> — one click, in every email, no login or reason required. Takes effect immediately.</li>
+  <li><strong>Access</strong> — ask us what data we hold on your address and we'll tell you.</li>
+  <li><strong>Correction</strong> — ask us to fix it if anything's wrong (there's very little to get wrong: just your email).</li>
+  <li><strong>Deletion</strong> — ask us to remove your data entirely, not just mark you unsubscribed, and we will.</li>
+</ul>
+<p>To exercise any of these, email us — see Contact below — from the address in question. We aim to act on requests within a few days.</p>
+
+<h2>Security</h2>
+<p>Your email address is stored in an access-controlled database that only we can reach, over encrypted connections. We don't store passwords, payment details, or any other sensitive data — there's nothing else in the system to protect beyond the address itself.</p>
+
+<h2>Consent and this notice</h2>
+<p>By checking the box on the subscribe form, you agree to this notice as it stands on the date you subscribe (recorded as the "consent version" against your record). If we materially change what we collect or why, we'll update this page and, where required, ask existing subscribers to reconfirm.</p>
+
+<h2>Contact</h2>
+<p>For any question, correction, or deletion request: [your email]. Reply to any Nine Fifteen email works too.</p>
+
+<h2>Regulatory note</h2>
+<p>This notice is written to align with India's Digital Personal Data Protection Act, 2023. Nine Fifteen is an independent publication, not a company processing data at scale, and this is a plain-English notice rather than a law-firm-drafted one — but the substance (purpose limitation, no sale of data, working deletion rights, breach transparency if it ever happens) is meant to hold regardless of scale.</p>
+
+</div>
+
+<footer><div class="wrap">
+  © 2026 Nine Fifteen · <a href="/">Home</a> · <a href="/today">Today's brief</a> · <a href="/archive">Archive</a>
+</div></footer>
+
+<script>
+function nfToggleTheme(){
+  var r = document.documentElement;
+  var next = r.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  r.setAttribute('data-theme', next);
+  try { localStorage.setItem('nf_theme', next); } catch(e){}
+}
+</script>
+
+</body>
+</html>

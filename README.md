@@ -1,6 +1,6 @@
 # Nine Fifteen — site
 
-Four static pages, no build step, no framework. This is the whole website.
+Five static pages, no build step, no framework. This is the whole website.
 
 | File | What it is |
 |---|---|
@@ -8,8 +8,13 @@ Four static pages, no build step, no framework. This is the whole website.
 | `today.html` | Always the latest edition (overwritten each publish) |
 | `2026-08-19-am.html` | Today's dated permalink — stays forever, never overwritten |
 | `archive.html` | List of every past edition |
+| `privacy.html` | The privacy notice linked from the subscribe form's consent checkbox |
 
-The "Subscribe free" button on the homepage currently just sends people to `today.html` so you can click through and see the flow work. Once you connect beehiiv or Substack, swap in their embed and turn on its "redirect after subscribe" setting pointed at `/today.html` — the button keeps doing the same thing, except now it actually subscribes them first.
+The subscribe form calls our own subscriber API — see `/backend` in this repo — rather than a
+third-party ESP embed. Until that API is deployed, the form falls back to just sending people to
+`today.html` so you can see the flow work end to end. Once you've deployed the Worker (backend
+README walks through it, ~15 minutes), paste its URL into `NF_WORKER_URL` near the bottom of
+`index.html` and the form goes fully live — subscribing for real, into a database you control.
 
 ## One-time setup (you do this — about 20 minutes total)
 
@@ -30,6 +35,20 @@ Each morning and afternoon, the scheduled brief:
 
 You'll still get the file sent to you in chat first to skim, exactly like today. If a number's wrong, tell me and I fix it and republish — nothing is locked once it's live.
 
+## Clean URLs
+
+Every internal link on the site points to `/today`, `/archive`, `/privacy`, `/2026-08-19-am` and
+so on — no `.html` showing in the address bar, same as most real sites. This works automatically
+on GitHub Pages: it silently serves `today.html` when someone requests `/today`, no configuration
+needed. The files on disk still keep their `.html` names (that's required — GitHub Pages needs
+the real filename to serve), so when the daily brief writes a new dated file, keep naming it
+`2026-08-20-am.html` etc. as usual, and just link to it as `/2026-08-20-am` everywhere it's
+referenced (archive list, "browse past editions", etc.). Old links with `.html` still work too —
+nothing that's already been shared or bookmarked breaks.
+
 ## Email signup
 
-The "Subscribe" button on `about.html` is a placeholder form right now. Once you've created a beehiiv or Substack account, replace the `<form>...</form>` block in `about.html` with the embed code they give you — that's a one-paragraph copy-paste, I can do it the moment you have it.
+The subscribe form (on `index.html`) is real and posts to your own subscriber API — see
+`/backend` for what that is and how to deploy it. Until you deploy it, the form falls back to a
+harmless test flow (click through to today's brief) so the site never looks broken. Once
+deployed, one line (`NF_WORKER_URL` at the bottom of `index.html`) turns it on.

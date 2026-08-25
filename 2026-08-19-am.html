@@ -2,6 +2,13 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
+<script>
+// Runs before first paint so a returning visitor's dark-mode choice doesn't flash light first.
+// Default is always light unless this visitor explicitly toggled dark before (see footer script).
+try {
+  if (localStorage.getItem('nf_theme') === 'dark') document.documentElement.setAttribute('data-theme','dark');
+} catch(e){}
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nine Fifteen — Wed 19 Aug 2026, Pre-Open</title>
 <meta name="description" content="What moved overnight, and how it reaches Indian markets. Free daily pre-open brief.">
@@ -23,16 +30,6 @@
   --goodtext:#0ca30c; --s1:#3987e5; --accent:#6da7ec;
   --wash:rgba(255,255,255,0.045);
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    color-scheme: dark;
-    --plane:#0d0d0d; --surface:#1a1a19;
-    --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
-    --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,0.10);
-    --goodtext:#0ca30c; --s1:#3987e5; --accent:#6da7ec;
-    --wash:rgba(255,255,255,0.045);
-  }
-}
 *{box-sizing:border-box}
 body{margin:0;background:var(--plane);color:var(--ink);
   font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
@@ -45,9 +42,19 @@ nav .in{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-item
 .navlinks{display:flex;gap:18px;align-items:center;font-size:13.5px}
 .navlinks a{color:var(--ink2);text-decoration:none}
 .navlinks a:hover{color:var(--ink)}
-.themebtn{border:1px solid var(--ring);background:var(--surface);color:var(--ink2);border-radius:999px;
-  padding:6px 13px;font-size:12px;cursor:pointer;font-family:inherit}
-.themebtn:hover{background:var(--wash)}
+.theme-toggle{background:none;border:none;padding:0;margin:0;cursor:pointer;line-height:0;-webkit-tap-highlight-color:transparent}
+.tt-track{width:46px;height:25px;border-radius:999px;display:flex;align-items:center;padding:2px;
+  background:linear-gradient(to right,#cfe8ff,#ffe9ad);border:1px solid var(--ring);transition:background .35s ease}
+:root[data-theme="dark"] .tt-track{background:linear-gradient(to right,#1c2340,#0c0c14)}
+.tt-thumb{width:19px;height:19px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.28);
+  display:flex;align-items:center;justify-content:center;position:relative;
+  transform:translateX(0);transition:transform .35s cubic-bezier(.4,0,.2,1),background .35s ease}
+:root[data-theme="dark"] .tt-thumb{transform:translateX(21px);background:#2b2b3a}
+.tt-thumb svg{width:12px;height:12px;position:absolute;transition:opacity .25s ease,transform .35s ease}
+.tt-sun{color:#f2a01f;opacity:1;transform:scale(1) rotate(0deg)}
+.tt-moon{color:#cfd6f5;opacity:0;transform:scale(.4) rotate(-90deg)}
+:root[data-theme="dark"] .tt-sun{opacity:0;transform:scale(.4) rotate(90deg)}
+:root[data-theme="dark"] .tt-moon{opacity:1;transform:scale(1) rotate(0deg)}
 
 .wrap{max-width:1120px;margin:0 auto;padding:28px 20px 60px}
 
@@ -105,13 +112,6 @@ ul.news li .b{color:var(--ink2);font-size:13.5px}
   padding:2px 7px;border-radius:5px;margin-right:8px;vertical-align:2px;border:1px solid var(--ring)}
 .c-info{color:var(--s1)} .c-neu{color:var(--muted)} .c-warn{color:var(--serious)}
 
-.subscribe{background:var(--surface);border:1px solid var(--ring);border-radius:12px;padding:18px 20px;
-  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:30px}
-.subscribe .t{font-size:14px;color:var(--ink2)}
-.subscribe .t b{color:var(--ink)}
-.subscribe a.cta{font-size:13.5px;font-weight:650;text-decoration:none;color:var(--plane);
-  background:var(--ink);padding:9px 16px;border-radius:7px;white-space:nowrap}
-
 .discl{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--muted);
   border-radius:9px;padding:16px 18px;font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:16px}
 .discl strong{color:var(--ink2)}
@@ -136,10 +136,14 @@ ul.news li .b{color:var(--ink2);font-size:13.5px}
 <nav><div class="in">
   <a class="logo" href="/">Nine<span>Fifteen</span></a>
   <div class="navlinks">
-    <a href="/archive.html">Archive</a>
+    <a href="/archive">Archive</a>
     <a href="/">Home & About</a>
-    <a href="/#subscribe">Subscribe</a>
-    <button class="themebtn" onclick="var r=document.documentElement;r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')">Theme</button>
+    <button class="theme-toggle" onclick="nfToggleTheme()" aria-label="Toggle dark mode" title="Toggle theme">
+      <span class="tt-track"><span class="tt-thumb">
+        <svg class="tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="tt-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </span></span>
+    </button>
   </div>
 </div></nav>
 
@@ -170,11 +174,6 @@ ul.news li .b{color:var(--ink2);font-size:13.5px}
     <span class="conftag"><span class="dot dot-s"></span>GIFT Nifty (24,206–24,240) <b>— Single-sourced, as of ~8:40 AM IST</b></span>
   </div>
   <p class="confkey">P = confirmed against an official exchange/regulator source · C = confirmed by 2+ independent sources agreeing · S = only one source found — treat with more caution than the rest of this brief.</p>
-</div>
-
-<div class="subscribe">
-  <div class="t"><b>Get this in your inbox at 8:45 AM IST.</b> Free, weekdays, unsubscribe anytime.</div>
-  <a class="cta" href="/#subscribe">Subscribe free →</a>
 </div>
 
 <section>
@@ -306,9 +305,21 @@ ul.news li .b{color:var(--ink2);font-size:13.5px}
 <div class="foot">
   Sources: Business Standard, Business Today, Trading Economics, TheStreet, Yahoo Finance, TradingKey, Univest, 5paisa, Craytheon, India Infoline, PIB, Rolls-Royce, Bajaj Broking, Newsquawk.<br>
   <strong style="color:var(--ink2)">How we verify:</strong> figures marked Primary above were checked against official exchange or regulator data. Everything else was cross-checked across at least two independent sources before publishing. Anything we could only find once is marked Single-sourced and should be treated with more caution than the rest of this page. We keep a running log of every conflict and correction — <a href="/">ask us for it any time</a>.<br>
-  <a href="/archive.html">Browse past editions</a> · <a href="/">About Nine Fifteen (Home)</a>
+  <a href="/archive">Browse past editions</a> · <a href="/">About Nine Fifteen (Home)</a>
 </div>
 
 </div>
+
+<script>
+// Light is always the default; this is the only thing that switches it, and the choice
+// is remembered for next time (see the head script for the read-back).
+function nfToggleTheme(){
+  var r = document.documentElement;
+  var next = r.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  r.setAttribute('data-theme', next);
+  try { localStorage.setItem('nf_theme', next); } catch(e){}
+}
+</script>
+
 </body>
 </html>
