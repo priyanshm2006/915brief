@@ -28,10 +28,12 @@ README walks through it, ~15 minutes), paste its URL into `NF_WORKER_URL` near t
 ## What happens after step 6
 
 Each morning and afternoon, the scheduled brief:
-1. Writes a new dated file (`2026-08-20-am.html`, etc.)
-2. Overwrites `index.html` with that file's content, so the homepage always shows the latest
-3. Adds a line to `archive.html`
+1. Writes a new dated file (`2026-08-27-am.html`, etc.)
+2. Overwrites `today.html` with that file's content, so `/today` always shows the latest edition
+3. Adds a line to `archive.html` linking the new dated permalink
 4. Commits and pushes — GitHub Pages redeploys automatically within about a minute
+
+`index.html` (the homepage/pitch page) is not touched by daily publishes — it's static and only changes when its own content is deliberately edited.
 
 You'll still get the file sent to you in chat first to skim, exactly like today. If a number's wrong, tell me and I fix it and republish — nothing is locked once it's live.
 
