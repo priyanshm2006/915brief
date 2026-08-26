@@ -242,7 +242,7 @@ function nfToggleTheme(){
 // Until then, this falls back to a demo flow so the site never looks broken while the
 // backend is being set up, but the demo follows the same "click again to continue" rule
 // as the real thing — subscribing never silently redirects anyone.
-var NF_WORKER_URL = "https://nine-fifteen-subscribers.nine-fifteen-backend.workers.dev"; // e.g. "https://nine-fifteen-subscribers.yoursubdomain.workers.dev"
+var NF_WORKER_URL = "https://nine-fifteen-subscribers.nine-fifteen-backend.workers.dev";
 
 // Puts one subscribe form into its resting "already subscribed" state: the email field is
 // locked in, the consent row disappears, and the button becomes a plain link to today's
@@ -337,9 +337,17 @@ function nfSubscribe(form){
   return false;
 }
 
-// Returning visitor (fresh page load, or landed back here via Back from today's brief):
-// if this browser already subscribed, show that state immediately instead of a blank form.
 document.addEventListener('DOMContentLoaded', function(){
+  // The "Setup note" under the hero form is build-time text, not real subscriber-facing
+  // copy — hide it automatically the moment NF_WORKER_URL is actually filled in, so nobody
+  // has to remember to come back and delete it by hand.
+  if (NF_WORKER_URL){
+    var note = document.getElementById('nf-note');
+    if (note) note.hidden = true;
+  }
+
+  // Returning visitor (fresh page load, or landed back here via Back from today's brief):
+  // if this browser already subscribed, show that state immediately instead of a blank form.
   var subscribed = false;
   try { subscribed = localStorage.getItem('nf_subscribed') === '1'; } catch(e){}
   if (!subscribed) return;
