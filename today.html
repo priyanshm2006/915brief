@@ -39,8 +39,9 @@ nav{border-bottom:1px solid var(--grid);position:sticky;top:0;background:var(--p
 nav .in{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .logo{font-weight:750;letter-spacing:-0.02em;font-size:16px;text-decoration:none;color:var(--ink)}
 .logo span{color:var(--accent)}
-.navlinks{display:flex;gap:18px;align-items:center;font-size:13.5px}
-.navlinks a{color:var(--ink2);text-decoration:none}
+.navlinks{display:flex;gap:18px;align-items:center;font-size:13.5px;flex-wrap:wrap;row-gap:6px}
+.navlinks a{color:var(--ink2);text-decoration:none;white-space:nowrap}
+@media(max-width:400px){.navlinks{gap:12px;font-size:12.5px}}
 .navlinks a:hover{color:var(--ink)}
 .theme-toggle{background:none;border:none;padding:0;margin:0;cursor:pointer;line-height:0;-webkit-tap-highlight-color:transparent}
 .tt-track{width:46px;height:25px;border-radius:999px;display:flex;align-items:center;padding:2px;
@@ -129,6 +130,13 @@ ul.news li .b{color:var(--ink2);font-size:13.5px}
 .dot-s{background:var(--warn)}
 .confkey{margin-top:10px;font-size:11.5px;color:var(--muted)}
 
+.nudge{background:var(--surface);border:1px solid var(--ring);border-radius:12px;padding:16px 18px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.nudge .t{font-size:13.5px;color:var(--ink2)}
+.nudge .t b{color:var(--ink)}
+.nudge a.cta{font-size:13px;font-weight:650;text-decoration:none;color:var(--plane);
+  background:var(--ink);padding:8px 15px;border-radius:7px;white-space:nowrap}
+
 </style>
 </head>
 <body>
@@ -174,6 +182,11 @@ ul.news li .b{color:var(--ink2);font-size:13.5px}
     <span class="conftag"><span class="dot dot-s"></span>GIFT Nifty (24,206–24,240) <b>— Single-sourced, as of ~8:40 AM IST</b></span>
   </div>
   <p class="confkey">P = confirmed against an official exchange/regulator source · C = confirmed by 2+ independent sources agreeing · S = only one source found — treat with more caution than the rest of this brief.</p>
+</div>
+
+<div class="nudge" id="nf-nudge">
+  <div class="t"><b>Not on the list yet?</b> Get this in your inbox at 8:45 AM IST — free, weekdays, unsubscribe anytime.</div>
+  <a class="cta" href="/#subscribe">Subscribe free →</a>
 </div>
 
 <section>
@@ -319,6 +332,21 @@ function nfToggleTheme(){
   r.setAttribute('data-theme', next);
   try { localStorage.setItem('nf_theme', next); } catch(e){}
 }
+
+// This page is reachable without subscribing (shared links, search, browsing from home),
+// so a reader can land here and read the whole thing for free. That's fine as content
+// strategy, but they should still get one clear, unpushy chance to actually subscribe
+// instead of just quietly leaving. Real subscribers (the localStorage flag set on a
+// successful subscribe on the homepage) don't need to see this every time, so it hides
+// for them.
+document.addEventListener('DOMContentLoaded', function(){
+  var subscribed = false;
+  try { subscribed = localStorage.getItem('nf_subscribed') === '1'; } catch(e){}
+  if (subscribed){
+    var nudge = document.getElementById('nf-nudge');
+    if (nudge) nudge.hidden = true;
+  }
+});
 </script>
 
 </body>

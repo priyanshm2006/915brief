@@ -40,8 +40,9 @@ nav{border-bottom:1px solid var(--rule)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 22px}
 .logo{font-weight:750;letter-spacing:-0.02em;font-size:17px;text-decoration:none;color:var(--ink)}
 .logo span{color:var(--accent)}
-nav .navlinks{display:flex;gap:16px;font-size:13.5px}
-nav .navlinks a{color:var(--ink2);text-decoration:none}
+nav .navlinks{display:flex;gap:16px;font-size:13.5px;flex-wrap:wrap;row-gap:6px}
+nav .navlinks a{color:var(--ink2);text-decoration:none;white-space:nowrap}
+@media(max-width:400px){nav .navlinks{gap:12px;font-size:12.5px}}
 header{padding:44px 0 8px}
 h1{font-size:30px;letter-spacing:-0.03em;margin:0 0 8px}
 .sub{color:var(--ink2);font-size:14.5px;margin:0 0 30px}

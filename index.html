@@ -35,11 +35,21 @@ body{margin:0;background:var(--plane);color:var(--ink);
 
 /* nav */
 nav{border-bottom:1px solid var(--rule);position:sticky;top:0;background:var(--plane);z-index:10}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
-.logo{font-weight:750;letter-spacing:-0.02em;font-size:17px}
+nav .navwrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  padding-top:14px;padding-bottom:14px;row-gap:8px;column-gap:12px}
+.logo{font-weight:750;letter-spacing:-0.02em;font-size:17px;text-decoration:none;color:var(--ink);
+  white-space:nowrap;order:1}
 .logo span{color:var(--accent)}
+.navactions{display:flex;gap:14px;align-items:center;order:2}
+.navlinks{display:flex;gap:16px;align-items:center;font-size:13.5px;order:3}
+.navlinks a{color:var(--ink2);text-decoration:none;white-space:nowrap}
 nav a.cta{font-size:13.5px;font-weight:650;text-decoration:none;color:var(--surface);
-  background:var(--ink);padding:8px 15px;border-radius:7px}
+  background:var(--ink);padding:8px 15px;border-radius:7px;white-space:nowrap}
+@media(max-width:560px){
+  .navlinks{flex-basis:100%;order:4;padding-top:8px;border-top:1px solid var(--rule);
+    font-size:13px;gap:14px}
+  nav a.cta{padding:7px 12px;font-size:12.5px}
+}
 
 /* hero */
 header.hero{padding:68px 0 52px;border-bottom:1px solid var(--rule)}
@@ -124,11 +134,9 @@ footer strong{color:var(--ink2)}
 </head>
 <body>
 
-<nav><div class="wrap">
-  <a class="logo" href="/" style="text-decoration:none;color:var(--ink)">Nine<span>Fifteen</span></a>
-  <div style="display:flex;gap:16px;align-items:center">
-    <a href="/today" style="font-size:13.5px;color:var(--ink2);text-decoration:none">Today's brief</a>
-    <a href="/archive" style="font-size:13.5px;color:var(--ink2);text-decoration:none">Archive</a>
+<nav><div class="wrap navwrap">
+  <a class="logo" href="/">Nine<span>Fifteen</span></a>
+  <div class="navactions">
     <a class="cta" href="#subscribe">Subscribe free</a>
     <button class="theme-toggle" onclick="nfToggleTheme()" aria-label="Toggle dark mode" title="Toggle theme">
       <span class="tt-track"><span class="tt-thumb">
@@ -136,6 +144,10 @@ footer strong{color:var(--ink2)}
         <svg class="tt-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
       </span></span>
     </button>
+  </div>
+  <div class="navlinks">
+    <a href="/today">Today's brief</a>
+    <a href="/archive">Archive</a>
   </div>
 </div></nav>
 
