@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<script>
+try {
+  if (localStorage.getItem('nf_theme') === 'dark') document.documentElement.setAttribute('data-theme','dark');
+} catch(e){}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nine Fifteen — Wednesday 2 September 2026, Pre-Open Edition</title>
+<meta name="description" content="US strikes on Iran send Brent toward $95 and Wall Street lower for a second session — how the oil and bond-yield shock reaches Indian markets ahead of Wednesday's open.">
+<style>
+:root{
+  color-scheme: light;
+  --plane:#f9f9f7; --surface:#fcfcfb;
+  --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,0.10);
+  --good:#0ca30c; --goodtext:#006300; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b;
+  --s1:#2a78d6; --accent:#1c5cab;
+  --wash:rgba(11,11,11,0.035);
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --plane:#0d0d0d; --surface:#1a1a19;
+  --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,0.10);
+  --goodtext:#0ca30c; --s1:#3987e5; --accent:#6da7ec;
+  --wash:rgba(255,255,255,0.045);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+nav{border-bottom:1px solid var(--grid);position:sticky;top:0;background:var(--plane);z-index:10}
+nav .in{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-weight:750;letter-spacing:-0.02em;font-size:16px;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:18px;align-items:center;font-size:13.5px;flex-wrap:wrap;row-gap:6px}
+.navlinks a{color:var(--ink2);text-decoration:none;white-space:nowrap}
+@media(max-width:400px){.navlinks{gap:12px;font-size:12.5px}}
+.navlinks a:hover{color:var(--ink)}
+.theme-toggle{background:none;border:none;padding:0;margin:0;cursor:pointer;line-height:0;-webkit-tap-highlight-color:transparent}
+.tt-track{width:46px;height:25px;border-radius:999px;display:flex;align-items:center;padding:2px;
+  background:linear-gradient(to right,#cfe8ff,#ffe9ad);border:1px solid var(--ring);transition:background .35s ease}
+:root[data-theme="dark"] .tt-track{background:linear-gradient(to right,#1c2340,#0c0c14)}
+.tt-thumb{width:19px;height:19px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.28);
+  display:flex;align-items:center;justify-content:center;position:relative;
+  transform:translateX(0);transition:transform .35s cubic-bezier(.4,0,.2,1),background .35s ease}
+:root[data-theme="dark"] .tt-thumb{transform:translateX(21px);background:#2b2b3a}
+.tt-thumb svg{width:12px;height:12px;position:absolute;transition:opacity .25s ease,transform .35s ease}
+.tt-sun{color:#f2a01f;opacity:1;transform:scale(1) rotate(0deg)}
+.tt-moon{color:#cfd6f5;opacity:0;transform:scale(.4) rotate(-90deg)}
+:root[data-theme="dark"] .tt-sun{opacity:0;transform:scale(.4) rotate(90deg)}
+:root[data-theme="dark"] .tt-moon{opacity:1;transform:scale(1) rotate(0deg)}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 20px 60px}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:650}
+h1{font-size:27px;line-height:1.15;margin:6px 0 4px;font-weight:700;letter-spacing:-0.02em}
+.sub{color:var(--ink2);font-size:14px}
+.verdict{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--accent);
+  border-radius:12px;padding:18px 20px;margin-bottom:26px}
+.verdict h2{margin:0 0 8px;font-size:15px;letter-spacing:-0.01em}
+.verdict p{margin:0 0 10px;color:var(--ink2);font-size:14.5px}
+.verdict p:last-child{margin-bottom:0}
+.verdict strong{color:var(--ink)}
+section{margin-bottom:30px}
+h2.sec{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--grid)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:10px}
+.tile{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:13px 14px}
+.tile .lbl{font-size:11.5px;color:var(--muted);font-weight:600;letter-spacing:.02em;
+  display:flex;justify-content:space-between;gap:6px;align-items:baseline}
+.tile .val{font-size:21px;font-weight:680;letter-spacing:-0.025em;margin:5px 0 2px;color:var(--ink)}
+.tile .chg{font-size:12.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.tile .note{font-size:11.5px;color:var(--muted);margin-top:3px}
+.up{color:var(--goodtext)} .down{color:var(--crit)} .flat{color:var(--muted)}
+table{width:100%;border-collapse:collapse;background:var(--surface);
+  border:1px solid var(--ring);border-radius:10px;overflow:hidden;font-size:13.5px}
+th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  font-weight:650;padding:10px 12px;border-bottom:1px solid var(--grid);background:var(--wash)}
+td{padding:9px 12px;border-bottom:1px solid var(--grid);color:var(--ink2);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+td.name{color:var(--ink);font-weight:600}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.bars{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:14px 16px}
+.barrow{display:grid;grid-template-columns:130px 1fr 62px;align-items:center;gap:10px;padding:5px 0}
+.barrow .bl{font-size:12.5px;color:var(--ink);font-weight:600}
+.bartrack{position:relative;height:16px;background:linear-gradient(to right,transparent calc(50% - 0.5px),var(--grid) calc(50% - 0.5px),var(--grid) calc(50% + 0.5px),transparent calc(50% + 0.5px))}
+.bar{position:absolute;top:2px;height:12px}
+.bar.pos{left:50%;background:var(--s1);border-radius:0 4px 4px 0}
+.bar.neg{right:50%;background:var(--crit);border-radius:4px 0 0 4px}
+.barval{font-size:12.5px;font-variant-numeric:tabular-nums;text-align:right;font-weight:600}
+ul.news{list-style:none;margin:0;padding:0}
+ul.news li{background:var(--surface);border:1px solid var(--ring);border-radius:10px;
+  padding:12px 14px;margin-bottom:8px}
+ul.news li .h{font-weight:650;color:var(--ink);font-size:14px;margin-bottom:3px}
+ul.news li .b{color:var(--ink2);font-size:13.5px}
+.chip{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:2px 7px;border-radius:5px;margin-right:8px;vertical-align:2px;border:1px solid var(--ring)}
+.c-info{color:var(--s1)} .c-neu{color:var(--muted)} .c-warn{color:var(--serious)}
+.confbox{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:14px 16px;margin-bottom:26px}
+.confbox h3{margin:0 0 10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.conftags{display:flex;flex-wrap:wrap;gap:8px}
+.conftag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:5px 10px;border-radius:7px;border:1px solid var(--ring);color:var(--ink2)}
+.conftag b{color:var(--ink);font-weight:650}
+.conftag .dot{width:7px;height:7px;border-radius:50%;flex:none}
+.dot-p{background:var(--goodtext)}
+.dot-c{background:var(--s1)}
+.dot-s{background:var(--warn)}
+.confkey{margin-top:10px;font-size:11.5px;color:var(--muted)}
+.note{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--warn);
+  border-radius:10px;padding:13px 16px;margin:14px 0;font-size:13px;color:var(--ink2)}
+.note b{color:var(--ink)}
+.cardgrid{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+@media(max-width:760px){.cardgrid{grid-template-columns:1fr}}
+.infocard{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:14px 16px}
+.infocard h4{margin:0 0 6px;font-size:13.5px;font-weight:650;color:var(--ink)}
+.infocard p{margin:0;font-size:12.5px;color:var(--ink2);line-height:1.55}
+.infocard .meta{margin-top:6px;font-size:11px;color:var(--muted)}
+.nudge{background:var(--surface);border:1px solid var(--ring);border-radius:12px;padding:16px 18px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.nudge .t{font-size:13.5px;color:var(--ink2)}
+.nudge .t b{color:var(--ink)}
+.nudge a.cta{font-size:13px;font-weight:650;text-decoration:none;color:var(--plane);
+  background:var(--ink);padding:8px 15px;border-radius:7px;white-space:nowrap}
+.discl{background:var(--surface);border:1px solid var(--ring);border-left:3px solid var(--muted);
+  border-radius:9px;padding:16px 18px;font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.discl strong{color:var(--ink2)}
+.foot{padding-top:10px;font-size:12px;color:var(--muted);line-height:1.7}
+.foot a{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<nav><div class="in">
+  <a class="logo" href="/">Nine<span>Fifteen</span></a>
+  <div class="navlinks">
+    <a href="/today">Today's brief</a>
+    <a href="/archive">Archive</a>
+    <a href="/">Home &amp; About</a>
+    <button class="theme-toggle" onclick="nfToggleTheme()" aria-label="Toggle dark mode" title="Toggle theme">
+      <span class="tt-track"><span class="tt-thumb">
+        <svg class="tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="tt-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </span></span>
+    </button>
+  </div>
+</div></nav>
+
+<div class="wrap">
+
+<header class="top">
+  <div>
+    <div class="eyebrow">Pre-Open Edition</div>
+    <h1>Wednesday, 2 September 2026</h1>
+    <div class="sub">What moved overnight, and how it reaches Indian markets. Before the bell.</div>
+  </div>
+</header>
+
+<div class="verdict">
+  <h2>Oil spikes, Wall Street slides again as US-Iran tensions escalate — GIFT Nifty points to a cautious open</h2>
+  <p><strong>What happened.</strong> The US struck Iranian targets overnight after Iran's Revolutionary Guard attempted attacks on commercial shipping in the Strait of Hormuz; Iran said it retaliated with missile and drone strikes on US bases in Jordan and Bahrain, most of which were intercepted. Brent crude jumped to roughly $95.3–95.5 a barrel and WTI to around $91, both sharply higher than the ~$85.76 settle logged a week ago. US stocks fell for a second straight session — the S&amp;P 500 down 0.71% and the Nasdaq down 1.03% on Tuesday, after a 0.7% Dow decline on Monday — while Treasury yields kept climbing, a combination one US wire framed explicitly as a global bond selloff.</p>
+  <p><strong>How this reaches India:</strong> Two separate channels carry this in, and they cut in different directions. First, oil: India imports roughly 85% of its crude, so a move from the mid-$80s to the mid-$90s inside a week directly worsens the import bill and the current account arithmetic — the classic pressure point for the rupee and for fuel-linked inflation. It also splits the read-across inside India's own energy complex rather than lifting or hitting it as a block: upstream names such as ONGC and Oil India get better realisations on a higher crude price, while refiners and marketers (IOC, BPCL, HPCL) face margin compression if retail pump prices don't move in step, and fuel-cost-sensitive names like the airlines carry the cost directly. Second, the bond selloff: yields rising alongside falling equities — rather than the more familiar flight-to-safety pattern where bonds rally as stocks fall — is the signature of an oil-driven inflation scare rather than a pure risk-off move, and that matters for India because rising US real yields make foreign portfolio allocation to emerging-market equities less attractive at the margin. That pressure typically shows up first in FII cash-market flows, before it shows up in growth data.</p>
+  <p>Nifty 50 closed Tuesday's session at 24,055.80, down marginally (−24.60 points, −0.10%). GIFT Nifty was indicating a soft open near 24,020–24,040 as of roughly 8:30am IST, down 35–54 points from its own prior close — see the Overnight Global Tape section below for why that implied gap should be read with more caution than usual this morning.</p>
+</div>
+
+<div class="confbox">
+  <h3>Source Confidence — today's headline figures</h3>
+  <div class="conftags">
+    <span class="conftag"><span class="dot dot-c"></span>Nifty 50 close <b>24,055.80</b></span>
+    <span class="conftag"><span class="dot dot-c"></span>Sensex close <b>76,944.28</b></span>
+    <span class="conftag"><span class="dot dot-p"></span>31 Aug FII net <b>−₹7,985.88 cr</b></span>
+    <span class="conftag"><span class="dot dot-p"></span>31 Aug DII net <b>+₹4,588.88 cr</b></span>
+    <span class="conftag"><span class="dot dot-c"></span>1 Sep FII net <b>+₹1,143.38 cr</b></span>
+    <span class="conftag"><span class="dot dot-c"></span>1 Sep DII net <b>+₹1,846.94 cr</b></span>
+    <span class="conftag"><span class="dot dot-c"></span>US indices, 1 Sep close</span>
+    <span class="conftag"><span class="dot dot-c"></span>Brent / WTI</span>
+    <span class="conftag"><span class="dot dot-c"></span>GIFT Nifty direction</span>
+    <span class="conftag"><span class="dot dot-s"></span>India VIX</span>
+    <span class="conftag"><span class="dot dot-s"></span>USD/INR (direction contested)</span>
+    <span class="conftag"><span class="dot dot-s"></span>Today's Asian move (−3%/−1%)</span>
+    <span class="conftag"><span class="dot dot-p"></span>Q1 FY27 GDP / Fed funds</span>
+  </div>
+  <p class="confkey">P = confirmed against an official exchange/regulator source · C = confirmed by 2+ independent sources agreeing · S = only one source found — treat with more caution than the rest of this brief. 9 of 13 headline figures above are C or P; 4 (India VIX, USD/INR direction, today's live Asian move, and GIFT Nifty's exact level) rest on a single source and are flagged in the sections below.</p>
+</div>
+
+<div class="nudge" id="nf-nudge">
+  <div class="t"><b>Not on the list yet?</b> Get this in your inbox at 8:45 AM IST — free, weekdays, unsubscribe anytime.</div>
+  <a class="cta" href="/#subscribe">Subscribe free →</a>
+</div>
+
+<section>
+  <h2 class="sec">Tuesday's Close</h2>
+  <div class="tiles">
+    <div class="tile"><div class="lbl">Sensex</div><div class="val">76,944.28</div><div class="chg down">−12.99 (−0.02%)</div><div class="note">C — reconciled vs 31 Aug close</div></div>
+    <div class="tile"><div class="lbl">Nifty 50</div><div class="val">24,055.80</div><div class="chg down">−24.60 (−0.10%)</div><div class="note">C</div></div>
+    <div class="tile"><div class="lbl">Bank Nifty</div><div class="val">57,409.60</div><div class="chg down">−615.35 (−1.06%)</div><div class="note">S on source, reconciles vs prior close</div></div>
+    <div class="tile"><div class="lbl">Nifty Midcap 100</div><div class="val">—</div><div class="chg down">−1.39%</div><div class="note">S, level not published</div></div>
+    <div class="tile"><div class="lbl">Nifty Smallcap 100</div><div class="val">—</div><div class="chg down">−0.23%</div><div class="note">S, contested vs a different index family</div></div>
+    <div class="tile"><div class="lbl">India VIX</div><div class="val">11.49</div><div class="chg flat">no confirmed Δ</div><div class="note">S — sixth source failure in nine sessions for this figure; treat cautiously</div></div>
+    <div class="tile"><div class="lbl">BSE Breadth</div><div class="val">1,766 / 2,559</div><div class="chg down">advances / declines</div><div class="note">S — 234 unchanged</div></div>
+    <div class="tile"><div class="lbl">Nifty day high</div><div class="val">24,143</div><div class="chg flat">intraday</div><div class="note">S</div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Institutional Flows — 1 September 2026 (₹ crore, cash)</h2>
+  <div class="tiles">
+    <div class="tile"><div class="lbl">FII/FPI net (1 Sep)</div><div class="val up">+1,143.38</div><div class="chg up">net buy</div><div class="note">C — two platforms + month-to-date chain</div></div>
+    <div class="tile"><div class="lbl">DII net (1 Sep)</div><div class="val up">+1,846.94</div><div class="chg up">net buy</div><div class="note">C</div></div>
+    <div class="tile"><div class="lbl">FII/FPI net (31 Aug)</div><div class="val down">−7,985.88</div><div class="chg down">net sell</div><div class="note">P — read directly from NSE's own data</div></div>
+    <div class="tile"><div class="lbl">DII net (31 Aug)</div><div class="val up">+4,588.88</div><div class="chg up">net buy</div><div class="note">P</div></div>
+  </div>
+  <p style="font-size:13px;color:var(--ink2);margin:12px 0 0">August closed with FIIs net sellers of the month on an NSE cash basis — but the month was actually positive through 27 August; the entire outflow came in the final two sessions (28 and 31 August), so a reader shown only the monthly total would infer a month of steady selling that didn't happen. Separately: at least one widely read outlet's pre-open piece today reports the 1 September FII figure as a net <em>sale</em> of ₹1,143.38 crore — the magnitude is right, the sign is inverted. Two independently sourced platforms, plus the fact that this figure equals September's month-to-date exactly (as it must on the month's first session), confirm the correct reading is a net buy. This is at least the fourth time since mid-August this desk has caught a flow figure published with an inverted sign, and it is the single figure worth checking twice before repeating.</p>
+</section>
+
+<section>
+  <h2 class="sec">Sector Scorecard — 1 September 2026</h2>
+  <div class="bars">
+    <div class="barrow"><div class="bl">IT</div><div class="bartrack"><div class="bar pos" style="width:30%"></div></div><div class="barval up">+0.98%</div></div>
+    <div class="barrow"><div class="bl">FMCG</div><div class="bartrack"><div class="bar pos" style="width:29%"></div></div><div class="barval up">+0.94%</div></div>
+    <div class="barrow"><div class="bl">Metal</div><div class="bartrack"><div class="bar neg" style="width:1%"></div></div><div class="barval down">−0.03%</div></div>
+    <div class="barrow"><div class="bl">Energy</div><div class="bartrack"><div class="bar neg" style="width:12%"></div></div><div class="barval down">−0.38%</div></div>
+    <div class="barrow"><div class="bl">Bank</div><div class="bartrack"><div class="bar neg" style="width:33%"></div></div><div class="barval down">−1.06%</div></div>
+    <div class="barrow"><div class="bl">Financial Services</div><div class="bartrack"><div class="bar neg" style="width:34%"></div></div><div class="barval down">−1.10%</div></div>
+    <div class="barrow"><div class="bl">Auto</div><div class="bartrack"><div class="bar neg" style="width:38%"></div></div><div class="barval down">−1.22%</div></div>
+    <div class="barrow"><div class="bl">Consumer Durables</div><div class="bartrack"><div class="bar neg" style="width:43%"></div></div><div class="barval down">−1.40%</div></div>
+    <div class="barrow"><div class="bl">Realty</div><div class="bartrack"><div class="bar neg" style="width:44%"></div></div><div class="barval down">−1.42%</div></div>
+    <div class="barrow"><div class="bl">Pharma</div><div class="bartrack"><div class="bar neg" style="width:45%"></div></div><div class="barval down">−1.45%</div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Movers — Nifty 50, 1 September 2026</h2>
+  <div class="two">
+    <table><thead><tr><th>Top gainers</th><th style="text-align:right">Price ₹</th><th style="text-align:right">Chg</th></tr></thead>
+      <tbody>
+        <tr><td class="name">ITC</td><td class="n">266.60</td><td class="n up">+4.34%</td></tr>
+        <tr><td class="name">Bharti Airtel</td><td class="n">1,877.20</td><td class="n up">+3.60%</td></tr>
+        <tr><td class="name">Adani Ports</td><td class="n">1,647.50</td><td class="n up">+3.41%</td></tr>
+      </tbody></table>
+    <table><thead><tr><th>Top losers</th><th style="text-align:right">Price ₹</th><th style="text-align:right">Chg</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Shriram Finance</td><td class="n">1,059.10</td><td class="n down">−4.58%</td></tr>
+        <tr><td class="name">Maruti Suzuki</td><td class="n">12,950.00</td><td class="n down">−4.41%</td></tr>
+        <tr><td class="name">Nestlé India</td><td class="n">1,438.20</td><td class="n down">−3.90%</td></tr>
+      </tbody></table>
+  </div>
+  <p style="font-size:13px;color:var(--ink2);margin:12px 0 0">Single-sourced (S) — a second outlet's percentages diverge on three of these six names, so treat the exact figures as indicative rather than final.</p>
+</section>
+
+<section>
+  <h2 class="sec">Derivatives &amp; Positioning</h2>
+  <div class="tiles">
+    <div class="tile"><div class="lbl">Nifty Sep future</div><div class="val">24,245</div><div class="chg up">+164.6 pt premium</div><div class="note">C — expiry 29 Sep, spot-matched</div></div>
+    <div class="tile"><div class="lbl">Next weekly expiry</div><div class="val">8 Sep</div><div class="note">C</div></div>
+    <div class="tile"><div class="lbl">Next monthly expiry</div><div class="val">29 Sep</div><div class="note">C</div></div>
+    <div class="tile"><div class="lbl">Nifty rollover</div><div class="val">77.4%</div><div class="note">Attributed, Systematix — fixed at 26 Aug expiry</div></div>
+    <div class="tile"><div class="lbl">Bank Nifty rollover</div><div class="val">79.2%</div><div class="note">Attributed, Systematix</div></div>
+    <div class="tile"><div class="lbl">Stock futures rollover</div><div class="val">91.9%</div><div class="note">Attributed, Systematix</div></div>
+  </div>
+  <p style="font-size:13px;color:var(--ink2);margin:12px 0 0">No Nifty or Bank Nifty PCR, max pain or open-interest figure is published today. Every option-chain snapshot found this morning either omitted an expiry label or showed a spot level that matched a prior session's close rather than the confirmed 24,055.80 — a stale-cache pattern this desk has now caught repeatedly from the same handful of providers, so nothing from them is used until a source demonstrably updates. The rollover figures above are unchanged since the 26 August monthly expiry and are carried forward with attribution rather than re-verified daily; they describe positioning going into September, not today's session.</p>
+</section>
+
+<section>
+  <h2 class="sec">Overnight Global Tape</h2>
+  <div class="tiles">
+    <div class="tile"><div class="lbl">Dow Jones</div><div class="val">52,766.93</div><div class="chg down">−418.97 (−0.79%)</div><div class="note">C — Tue 1 Sep close</div></div>
+    <div class="tile"><div class="lbl">S&amp;P 500</div><div class="val">7,631.47</div><div class="chg down">−54.67 (−0.71%)</div><div class="note">C</div></div>
+    <div class="tile"><div class="lbl">Nasdaq</div><div class="val">26,099.77</div><div class="chg down">−271.11 (−1.03%)</div><div class="note">C</div></div>
+    <div class="tile"><div class="lbl">CBOE VIX</div><div class="val">14.92</div><div class="chg up">+3.39%</div><div class="note">C, as of 31 Aug — 1 Sep close not independently pinned</div></div>
+    <div class="tile"><div class="lbl">Nikkei 225 (prior close)</div><div class="val">66,420.26</div><div class="chg up">+0.2%</div><div class="note">C — 1 Sep session</div></div>
+    <div class="tile"><div class="lbl">Kospi (prior close)</div><div class="val">6,835.51</div><div class="chg up">+0.2%</div><div class="note">C — 1 Sep session</div></div>
+    <div class="tile"><div class="lbl">Hang Seng (prior close)</div><div class="val">25,332.10</div><div class="chg down">−0.9%</div><div class="note">C — 1 Sep session</div></div>
+    <div class="tile"><div class="lbl">Asia, trading now</div><div class="val">Sharply lower</div><div class="chg down">Nikkei/Kospi ~−3%, Hang Seng ~−1%</div><div class="note">S — one source, size of move unconfirmed elsewhere</div></div>
+    <div class="tile"><div class="lbl">GIFT Nifty</div><div class="val">~24,020–24,040</div><div class="chg down">−35 to −54 pts (−0.15% to −0.22%)</div><div class="note">C on direction — see note below</div></div>
+    <div class="tile"><div class="lbl">Brent crude</div><div class="val">~$95.3–95.5</div><div class="chg up">+~1% on the day</div><div class="note">C</div></div>
+    <div class="tile"><div class="lbl">WTI crude</div><div class="val">~$91.0</div><div class="chg up">~+6% vs last week's $85.76 settle</div><div class="note">C</div></div>
+    <div class="tile"><div class="lbl">Dollar Index</div><div class="val">99.67</div><div class="chg up">near two-week high</div><div class="note">S</div></div>
+    <div class="tile"><div class="lbl">Gold spot</div><div class="val">$4,328.59</div><div class="chg flat">little changed</div><div class="note">S</div></div>
+  </div>
+  <p style="font-size:13px;color:var(--ink2);margin:12px 0 0">GIFT Nifty's own premium to the confirmed Nifty spot close has run roughly 150–165 points through most of the past two weeks — ordinary cost of carry. This morning it has compressed to close to zero, even negative on some readings, which is unusual enough that this brief is not converting the reading into an implied opening level: a basis that has moved this much in one session is more likely to be measurement noise (or a genuine repricing of carry costs amid the risk-off tape) than a reliable anchor, and manufacturing a precise "implied open" from it would be false precision. The direction — down roughly a fifth to a fifth-and-a-half of a percent — is corroborated two ways and is the actual signal worth reading.</p>
+</section>
+
+<section>
+  <h2 class="sec">Macro &amp; Policy</h2>
+  <div class="cardgrid">
+    <div class="infocard"><h4>Q1 FY27 GDP</h4><p>Real GDP +7.8% y/y, GVA +8.2%, nominal GDP +10.3%. Manufacturing led at 9.2%, financial/real estate/professional services at 12.1%; agriculture +3.6%, mining −2.4%.</p><div class="meta">P — PIB</div></div>
+    <div class="infocard"><h4>August GST collections</h4><p>Gross ₹1,99,853 crore, up 14.8% y/y.</p><div class="meta">C</div></div>
+    <div class="infocard"><h4>India Manufacturing PMI</h4><p>52.8 for August — a five-year low, though still above the 50 expansion line.</p><div class="meta">C</div></div>
+    <div class="infocard"><h4>US Federal Reserve</h4><p>Funds rate 3.50–3.75% following a 9–3 vote at the July FOMC meeting. Next meeting 15–16 September.</p><div class="meta">P — federalreserve.gov</div></div>
+    <div class="infocard"><h4>RBI</h4><p>Repo rate 5.25%, neutral stance, Governor Sanjay Malhotra. Next Monetary Policy Committee meeting 5–7 October.</p><div class="meta">C on meeting dates</div></div>
+    <div class="infocard"><h4>Nifty valuation</h4><p>P/E 20.36, P/B 2.92, dividend yield 1.17% as of 31 August — broadly in line with recent-average ranges, nothing extreme in either direction.</p><div class="meta">C</div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Corporate &amp; Primary Market</h2>
+  <div class="cardgrid">
+    <div class="infocard"><h4>Earnings</h4><p>No Q1 FY27 results are scheduled — the season closed on 14 August, the SEBI 45-day deadline, and this has now been independently re-confirmed on six consecutive editions.</p><div class="meta">C</div></div>
+    <div class="infocard"><h4>Block/bulk deals, ratings actions</h4><p>No block or bulk deal, and no named brokerage upgrade or downgrade, could be independently verified for 1 September.</p><div class="meta">Not published</div></div>
+    <div class="infocard"><h4>Primary market</h4><p>Deepa Jewellers and Rays of Belief remain in the IPO pipeline; day-one subscription and grey-market figures could not be independently verified within today's research window.</p><div class="meta">S / incomplete</div></div>
+    <div class="infocard"><h4>Next trading holiday</h4><p>NSE and BSE next close for Ganesh Chaturthi on Monday, 14 September.</p><div class="meta">C</div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Technical Context, as Reported</h2>
+  <p style="font-size:13px;color:var(--ink2);margin:0 0 10px">Levels below are cited by named market commentators in published reports. They are presented here as reporting, not as this publication's own analysis or a recommendation.</p>
+  <table>
+    <thead><tr><th>Index</th><th>Analyst / firm</th><th>Reported support</th><th>Reported resistance</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td class="name">Nifty 50</td><td>Nagaraj Shetti, HDFC Securities</td><td>~24,000, then 23,800</td><td>Above 24,150</td><td>A close above resistance is described as opening further short-term upside</td></tr>
+      <tr><td class="name">Sensex</td><td>Sachin Gupta, Choice Equity Broking</td><td>76,400–76,600</td><td>77,300–77,500</td><td>—</td></tr>
+      <tr><td class="name">Bank Nifty</td><td>Bajaj Broking Research</td><td>57,000 immediate, then 56,500–56,200</td><td>58,000</td><td>Broad consolidation range given as 56,500–58,700</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="discl">
+  <strong>Disclaimer.</strong> Nine Fifteen is an independent daily summary of publicly reported market and economic news. It is <strong>not investment advice</strong> and contains no recommendation to buy, sell, or hold any security. We are <strong>not registered with SEBI</strong> as a Research Analyst or Investment Adviser. Nothing here is tailored to any individual's financial situation, objectives, or risk tolerance. Figures are compiled from third-party and, where possible, primary/official sources; they are cross-checked but not independently audited and may be revised — always verify against your own broker or terminal before acting. Securities investments are subject to market risk; past performance does not indicate future results. Please consult a SEBI-registered adviser before making investment decisions.
+</div>
+<div class="foot">
+  Sources: NSE (fiidiiTradeReact), Federal Reserve Board &amp; FRED, PIB, Business Standard, Business Today, The Motley Fool, Al Jazeera, CNBC, Kotak Neo, NiftyTrader, Yahoo Finance, HDFC Securities, Choice Equity Broking, Bajaj Broking Research, Systematix Institutional Research.<br>
+  <strong style="color:var(--ink2)">How we verify:</strong> figures marked Primary above were checked against official exchange or regulator data. Everything else was cross-checked across at least two independent sources before publishing. Anything we could only find once is marked Single-sourced and should be treated with more caution than the rest of this page.<br>
+  <a href="/archive">Browse past editions</a> · <a href="/">About Nine Fifteen (Home)</a>
+</div>
+
+</div>
+
+<script>
+function nfToggleTheme(){
+  var r = document.documentElement;
+  var next = r.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  r.setAttribute('data-theme', next);
+  try { localStorage.setItem('nf_theme', next); } catch(e){}
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var subscribed = false;
+  try { subscribed = localStorage.getItem('nf_subscribed') === '1'; } catch(e){}
+  if (subscribed){
+    var nudge = document.getElementById('nf-nudge');
+    if (nudge) nudge.hidden = true;
+  }
+});
+</script>
+
+</body>
+</html>
